@@ -23,17 +23,11 @@ public class BeerController {
     @Autowired
     private BeerService beerService;
      
-    @RequestMapping(value="/")
-    public ModelAndView home()
-    {
-    	ModelAndView model = new ModelAndView("home");
-    	return model;
-    }
     
-    @RequestMapping(value={"/beers/beerlist","/beers"})
+    @RequestMapping(value="/beers")
     public ModelAndView beerList() {
         List<Beers> listBeers = beerService.list();
-        ModelAndView model = new ModelAndView("beerList2");
+        ModelAndView model = new ModelAndView("beers/beerList2");
         model.addObject("beerList", listBeers);
         return model;
     }
@@ -41,15 +35,15 @@ public class BeerController {
     @RequestMapping(value="/beers/createbeer")
     public ModelAndView createbeerpage()
     {
-    	ModelAndView model = new ModelAndView("createbeer");
+    	ModelAndView model = new ModelAndView("beers/createbeer");
     	model.addObject("beer", new Beers());
     	return model;
     }
     
-    @RequestMapping(value="beers/createbeer/process")
+    @RequestMapping(value="/beers/createbeer/process")
     public ModelAndView creatingbeers(@ModelAttribute("beer") Beers beer)
     {
-    	ModelAndView model = new ModelAndView("redirect:/beers/beerlist");
+    	ModelAndView model = new ModelAndView("redirect:/beers");
     	beerService.createBeer(beer);
     	return model;
     }
@@ -58,7 +52,7 @@ public class BeerController {
     @RequestMapping(value="beers/deletebeer/{id}", method= RequestMethod.GET)
     public ModelAndView deletebeer(@PathVariable Integer id)
     {
-    ModelAndView model = new ModelAndView("redirect:/beers/beerlist");
+    ModelAndView model = new ModelAndView("redirect:/beers");
     beerService.deleteBeer(id);
     return model;	
     }

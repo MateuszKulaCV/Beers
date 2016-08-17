@@ -9,4 +9,5 @@ public interface BeersDAO {
  public void createBeer(Beers beer);
  public void deleteBeer(int id);
  public Beers getBeer(int id); 
+// public void addmany();
 }

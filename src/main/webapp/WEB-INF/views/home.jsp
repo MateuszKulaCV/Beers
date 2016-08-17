@@ -22,9 +22,9 @@
   <li class="active">
     <a href="#">Home</a>
   </li>
-  <li><a href="#">beerlist</a></li>
-  <li><a href="beerlist">beerlist2</a></li>
-   <li><a href="">nowe</a></li>
+  <li><a href="beers">Beers</a></li>
+  <li><a href="beers">Pubs</a></li>
+   <li><a href="#">nowe</a></li>
 </ul>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>    

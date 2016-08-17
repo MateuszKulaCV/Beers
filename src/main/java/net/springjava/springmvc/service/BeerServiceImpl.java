@@ -32,4 +32,11 @@ public class BeerServiceImpl implements BeerService {
 		
 	}
 
+/*
+	@Override
+	public void addmany() {
+	beersDAO.addmany();
+		System.out.println("add many");
+	}
+*/
 }

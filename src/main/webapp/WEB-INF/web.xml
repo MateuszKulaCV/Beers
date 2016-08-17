@@ -30,10 +30,14 @@
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>
-		<url-pattern>/beerlist</url-pattern>
+		<url-pattern>/beers/beerlist</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>
-		<url-pattern>/createbeer</url-pattern>
+		<url-pattern>/beers/createbeer</url-pattern>
+	</servlet-mapping> 
+	<servlet-mapping>
+		<servlet-name>appServlet</servlet-name>
+		<url-pattern>/beers/deletebeer</url-pattern>
 	</servlet-mapping>
 </web-app>

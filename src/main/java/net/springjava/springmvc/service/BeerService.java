@@ -9,4 +9,5 @@ public interface BeerService {
 		 public List<Beers> list();
 		 public void createBeer(Beers beer);
 		 public void deleteBeer(int id);
+		// public void addmany();
 }
