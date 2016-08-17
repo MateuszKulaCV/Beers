@@ -32,6 +32,12 @@ public class BeerServiceImpl implements BeerService {
 		
 	}
 
+
+	@Override
+	public Beers getById(int id) {
+		return beersDAO.getBeer(id);
+	}
+
 /*
 	@Override
 	public void addmany() {

@@ -7,8 +7,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import net.springjava.springmvc.model.Beers;
 import net.springjava.springmvc.model.Pubs;
 import net.springjava.springmvc.service.PubService;
 
@@ -57,7 +59,17 @@ public class PubController {
     return model;	
     }
     
-   
+    @RequestMapping(value="pubs/json")
+    public @ResponseBody List<Pubs> getListPubsInJson()
+    {
+    	return (List<Pubs>) pubService.list();
+    }
+    
+    @RequestMapping(value="pubs/json/{id}", method = RequestMethod.GET)
+    public @ResponseBody Pubs getPubInJson(@PathVariable Integer id)
+    {
+    	return (Pubs) pubService.getPub(id);
+    }
 
      
 }
