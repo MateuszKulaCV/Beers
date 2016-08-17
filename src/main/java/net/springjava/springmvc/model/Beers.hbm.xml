@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="net.springjava.springmvc.model">
+    <class name="Beers" table="beers">
+        <id name="id" column="id">
+            <generator class="native"/>
+        </id>
+        <property name="pub" column="pub" />
+        <property name="piwo" column="piwo" />
+        <property name="link" column="link" />
+        <property name="progress" column="progress" />
+        <property name="halfprice" column="halfprice" />
+        <property name="threeprice" column="threeprice" />
+    </class> 
+</hibernate-mapping>
