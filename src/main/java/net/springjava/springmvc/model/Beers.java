@@ -1,5 +1,8 @@
 package net.springjava.springmvc.model;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Beers {
 	
 	public int getId() {

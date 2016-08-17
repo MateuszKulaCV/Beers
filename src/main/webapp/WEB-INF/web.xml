@@ -24,10 +24,16 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-		
+		<servlet-mapping>
+		<servlet-name>appServlet</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/beerlist</url-pattern>
 	</servlet-mapping>
-
+	<servlet-mapping>
+		<servlet-name>appServlet</servlet-name>
+		<url-pattern>/createbeer</url-pattern>
+	</servlet-mapping>
 </web-app>

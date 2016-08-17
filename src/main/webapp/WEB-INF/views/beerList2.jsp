@@ -28,6 +28,7 @@
                 <div align="left"><b>Beer List</b> </div>
                 </h3>
         </div>
+        <div align="right"><a href="${pageContext.request.contextPath}/beers/createbeer">add beer</a></div>
         <div class="panel-body">
             <c:if test="${empty beerList}">
                 There are no Beers
@@ -44,6 +45,7 @@
                 <th>progress</th>
                 <th>half</th>
                 <th>three</th>
+                <th>delete</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -56,6 +58,7 @@
                              <th><c:out value="${beer.progress}"/></th>
                             <th><c:out value="${beer.halfprice}"/></th>
                             <th><c:out value="${beer.threeprice}"/></th>              
+							<th><a href="${pageContext.request.contextPath}/beers/deletebeer/${beer.id}">DELETE</a></th>                     
                         </tr>
                     </c:forEach>
                     </tbody>

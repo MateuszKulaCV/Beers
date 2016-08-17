@@ -3,7 +3,9 @@ package net.springjava.springmvc.dao;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.transaction.annotation.Transactional;
 
 import net.springjava.springmvc.model.Beers;
@@ -26,5 +28,27 @@ public class BeersDAOImpl implements BeersDAO {
  
         return listBeers;
     }
+
+	@Override
+	@Transactional
+	public void createBeer(Beers beer) {
+		Session session = this.sessionFactory.getCurrentSession();
+		session.persist(beer);
+		
+	}
+
+	@Override
+	@Transactional
+	public void deleteBeer(int id) {
+		Session session = this.sessionFactory.getCurrentSession();
+		session.delete(getBeer(id));
+	}
+	
+	@Override
+	@Transactional
+	public Beers getBeer(int id) {
+		Session session = this.sessionFactory.getCurrentSession();
+		return (Beers) session.get(Beers.class, id);
+	}
 
 }
