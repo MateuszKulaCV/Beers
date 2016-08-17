@@ -23,7 +23,7 @@ public class BeerController {
     @RequestMapping(value="/beerlist")
     public ModelAndView beerList() {
         List<Beers> listBeers = beersDAO.list();
-        ModelAndView model = new ModelAndView("beerList");
+        ModelAndView model = new ModelAndView("beerList2");
         model.addObject("beerList", listBeers);
         return model;
     }
