@@ -40,4 +40,17 @@
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/beers/deletebeer</url-pattern>
 	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>appServlet</servlet-name>
+		<url-pattern>/pubs/publist</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>appServlet</servlet-name>
+		<url-pattern>/pubs/createpub</url-pattern>
+	</servlet-mapping> 
+	<servlet-mapping>
+		<servlet-name>appServlet</servlet-name>
+		<url-pattern>/pubs/deletepub</url-pattern>
+	</servlet-mapping>
+	
 </web-app>

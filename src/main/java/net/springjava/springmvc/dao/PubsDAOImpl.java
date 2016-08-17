@@ -27,6 +27,8 @@ public class PubsDAOImpl implements PubsDAO {
 	        List<Pubs> listPubs = (List<Pubs>) sessionFactory.getCurrentSession()
 	                .createCriteria(Pubs.class)
 	                .setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
+
+			System.out.println("pubdao");
 	 return listPubs;
 	}
 

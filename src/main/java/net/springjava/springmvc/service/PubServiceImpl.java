@@ -17,6 +17,7 @@ public class PubServiceImpl implements PubService {
 	
 	
 	public List<Pubs> list() {
+		System.out.println("pubservice");
 		return pubsDAO.list();
 	}
 

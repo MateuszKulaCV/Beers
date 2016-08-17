@@ -3,7 +3,7 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="net.springjava.springmvc.model">
-    <class name="Beers" table="beers">
+    <class name="Pubs" table="pubs">
         <id name="id" column="id">
             <generator class="native"/>
         </id>
