@@ -28,7 +28,7 @@ public class BeerController {
     @RequestMapping(value="/beers")
     public ModelAndView beerList() {
         List<Beers> listBeers = beerService.list();
-        ModelAndView model = new ModelAndView("beers/beerList2");
+        ModelAndView model = new ModelAndView("beers");
         model.addObject("beerList", listBeers);
         return model;
     }

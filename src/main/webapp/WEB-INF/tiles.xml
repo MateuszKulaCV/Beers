@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">  
+ 
+<tiles-definitions>  
+  
+   <!-- Base Definition -->
+   <definition name="base-definition"
+       template="/WEB-INF/views/layout/defaultLayout.jsp">  
+       <put-attribute name="title" value="" />  
+       <put-attribute name="header" value="/WEB-INF/views/defaultparts/header.jsp" />  
+       <put-attribute name="menu" value="/WEB-INF/views/defaultparts/menu.jsp" />  
+       <put-attribute name="body" value="" />  
+       <put-attribute name="footer" value="/WEB-INF/views/defaultparts/footer.jsp" />  
+   </definition>  
+  
+   <!-- Home Page -->
+   <definition name="home" extends="base-definition">  
+       <put-attribute name="title" value="Welcome" />  
+       <put-attribute name="body" value="/WEB-INF/views/home.jsp" />  
+   </definition>  
+ 
+   <!-- Product Page -->
+   <definition name="beers" extends="base-definition">  
+       <put-attribute name="title" value="Beers" />  
+       <put-attribute name="body" value="/WEB-INF/views/beers/beerList2.jsp" />  
+   </definition>  
+       
+   <!-- Contact-us Page -->
+   <definition name="pubs" extends="base-definition">  
+       <put-attribute name="title" value="Pubs" />  
+       <put-attribute name="body" value="/WEB-INF/views/pubs/pubList.jsp" />  
+   </definition>  
+  
+</tiles-definitions>

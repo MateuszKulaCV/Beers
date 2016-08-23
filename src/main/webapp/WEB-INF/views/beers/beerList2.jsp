@@ -21,13 +21,8 @@
     </style>
 </head>
 <body class=".container-fluid">
-<div class="container myrow-container">
-    <div class="panel panel-success">
-        <div class="panel-heading">
-            <h3 class="panel-title">
-                <div align="left"><b>Beer List</b> </div>
-                </h3>
-        </div>
+<div class="container ">
+   
         <div align="right"><a href="${pageContext.request.contextPath}/beers/createbeer">add beer</a></div>
         <div class="panel-body">
             <c:if test="${empty beerList}">
@@ -64,7 +59,7 @@
                     </tbody>
                 </table>
             </c:if>
-        </div>
+        
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>    
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>

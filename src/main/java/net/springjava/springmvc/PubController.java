@@ -29,7 +29,7 @@ public class PubController {
     @RequestMapping(value="/pubs")
     public ModelAndView pubList() {
         List<Pubs> listPubs = pubService.list();
-        ModelAndView model = new ModelAndView("pubs/pubList");
+        ModelAndView model = new ModelAndView("pubs");
         model.addObject("pubList", listPubs);
         return model;
     }

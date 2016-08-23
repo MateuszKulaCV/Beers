@@ -2,7 +2,7 @@
   User: Ranga Reddy
   Date: 09/05/2015
   Time: 6:52 PM
-  --%>
+ --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -19,15 +19,11 @@
             margin: 20px;
         }
     </style>
-</head>
-<body class=".container-fluid">
-<div class="container myrow-container">
-    <div class="panel panel-success">
-        <div class="panel-heading">
-            <h3 class="panel-title">
-                <div align="left"><b>Pub List</b> </div>
-                </h3>
-        </div>
+</head> 
+<body>
+<div >
+  
+       
         <div align="right"><a href="${pageContext.request.contextPath}/pubs/createpub">add pub</a></div>
         <div class="panel-body">
             <c:if test="${empty pubList}">
@@ -35,7 +31,7 @@
             </c:if>
             <c:if test="${not empty pubList}">   
                         
-                <table class="table table-hover table-bordered">
+                <table class="table table-striped ">
                     <thead style="background-color: #bce8f1;">
                     <tr>
                         <th>id</th>
@@ -57,7 +53,7 @@
                     </tbody>
                 </table>
             </c:if>
-        </div>
+       
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>    
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
