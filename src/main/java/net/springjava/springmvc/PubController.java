@@ -28,16 +28,16 @@ public class PubController {
     
     @RequestMapping(value="/pubs")
     public ModelAndView pubList() {
-        List<Pubs> listPubs = pubService.list();
+       
         ModelAndView model = new ModelAndView("pubs");
-        model.addObject("pubList", listPubs);
+       pubs(model);
         return model;
     }
     
     @RequestMapping(value="/pubs/createpub")
     public ModelAndView createpubpage()
     {
-    	ModelAndView model = new ModelAndView("pubs/createpub");
+    	ModelAndView model = new ModelAndView("createpub");
     	model.addObject("pub", new Pubs());
     	return model;
     }
@@ -45,8 +45,9 @@ public class PubController {
     @RequestMapping(value="/pubs/createpub/process")
     public ModelAndView creatingpubs(@ModelAttribute("pub") Pubs pub)
     {
-    	ModelAndView model = new ModelAndView("redirect:/pubs");
+    	ModelAndView model = new ModelAndView("pubs");
     	pubService.createPub(pub);
+    	pubs(model);
     	return model;
     }
     
@@ -54,8 +55,9 @@ public class PubController {
     @RequestMapping(value="pubs/deletepub/{id}", method= RequestMethod.GET)
     public ModelAndView deletepub(@PathVariable Integer id)
     {
-    ModelAndView model = new ModelAndView("redirect:/pubs");
+    ModelAndView model = new ModelAndView("pubs");
     pubService.deletePub(id);
+    pubs(model);
     return model;	
     }
     
@@ -70,6 +72,11 @@ public class PubController {
     {
     	return (Pubs) pubService.getPub(id);
     }
-
+    
+    private void pubs(ModelAndView model)
+    {
+    	 List<Pubs> listPubs = pubService.list();
+    	 model.addObject("pubList", listPubs);
+    }
      
 }

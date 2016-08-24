@@ -1,3 +1,3 @@
-<div class="span-24">
+<div >
 <h1>HEADER</h1>
    </div>

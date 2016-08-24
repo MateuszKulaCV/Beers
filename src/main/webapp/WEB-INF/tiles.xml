@@ -6,29 +6,43 @@
    <!-- Base Definition -->
    <definition name="base-definition"
        template="/WEB-INF/views/layout/defaultLayout.jsp">  
-       <put-attribute name="title" value="" />  
-       <put-attribute name="header" value="/WEB-INF/views/defaultparts/header.jsp" />  
-       <put-attribute name="menu" value="/WEB-INF/views/defaultparts/menu.jsp" />  
+       <put-attribute name="title" value="" />   
        <put-attribute name="body" value="" />  
        <put-attribute name="footer" value="/WEB-INF/views/defaultparts/footer.jsp" />  
    </definition>  
   
    <!-- Home Page -->
    <definition name="home" extends="base-definition">  
-       <put-attribute name="title" value="Welcome" />  
-       <put-attribute name="body" value="/WEB-INF/views/home.jsp" />  
+       <put-attribute name="title" value="Welcosme" />  
+       <put-attribute name="body" value="/WEB-INF/views/home.jsp" /> 
+       <put-attribute name="current" value="home"/>
    </definition>  
  
-   <!-- Product Page -->
+   <!-- Beers Page -->
    <definition name="beers" extends="base-definition">  
        <put-attribute name="title" value="Beers" />  
-       <put-attribute name="body" value="/WEB-INF/views/beers/beerList2.jsp" />  
+       <put-attribute name="body" value="/WEB-INF/views/beers/beerList.jsp" />  
+   		<put-attribute name="current" value="beers"/>
+   </definition>  
+   
+    <!-- Beers create Page -->
+       <definition name="createbeer" extends="base-definition">  
+       <put-attribute name="title" value="Create Beer" />  
+       <put-attribute name="body" value="/WEB-INF/views/beers/createbeer.jsp" />  
+   		<put-attribute name="current" value="createbeer"/>
    </definition>  
        
-   <!-- Contact-us Page -->
+   <!-- Pubs Page -->
    <definition name="pubs" extends="base-definition">  
        <put-attribute name="title" value="Pubs" />  
        <put-attribute name="body" value="/WEB-INF/views/pubs/pubList.jsp" />  
+       <put-attribute name="current" value="pubs"/>
+   </definition>  
+   
+    <definition name="createpub" extends="base-definition">  
+       <put-attribute name="title" value="Create Pub" />  
+       <put-attribute name="body" value="/WEB-INF/views/pubs/createpub.jsp" />  
+       <put-attribute name="current" value="create pubs"/>
    </definition>  
   
 </tiles-definitions>

@@ -27,25 +27,27 @@ public class BeerController {
     
     @RequestMapping(value="/beers")
     public ModelAndView beerList() {
-        List<Beers> listBeers = beerService.list();
+       
         ModelAndView model = new ModelAndView("beers");
-        model.addObject("beerList", listBeers);
+        beers(model);
         return model;
     }
     
     @RequestMapping(value="/beers/createbeer")
     public ModelAndView createbeerpage()
     {
-    	ModelAndView model = new ModelAndView("beers/createbeer");
+    	ModelAndView model = new ModelAndView("createbeer");
     	model.addObject("beer", new Beers());
     	return model;
     }
     
-    @RequestMapping(value="/beers/createbeer/process")
+    @RequestMapping(value="/beers/createbeer/process" )
     public ModelAndView creatingbeers(@ModelAttribute("beer") Beers beer)
     {
-    	ModelAndView model = new ModelAndView("redirect:/beers");
+    	ModelAndView model = new ModelAndView("beers");
+    	
     	beerService.createBeer(beer);
+    	 beers(model);
     	return model;
     }
     
@@ -53,8 +55,9 @@ public class BeerController {
     @RequestMapping(value="beers/deletebeer/{id}", method= RequestMethod.GET)
     public ModelAndView deletebeer(@PathVariable Integer id)
     {
-    ModelAndView model = new ModelAndView("redirect:/beers");
+    ModelAndView model = new ModelAndView("beers");
     beerService.deleteBeer(id);
+    beers(model);
     return model;	
     }
     
@@ -70,6 +73,13 @@ public class BeerController {
     	return (Beers) beerService.getById(id);
     }
     
+    
+    public void beers(ModelAndView model)
+    {
+    	List<Beers> listBeers = beerService.list();
+    	model.addObject("beerList", listBeers);
+   
+    }
    
 
      

@@ -31,7 +31,7 @@
             </c:if>
             <c:if test="${not empty pubList}">   
                         
-                <table class="table table-striped ">
+                <table class="table "style="background-color: #eaf8fb;">
                     <thead style="background-color: #bce8f1;">
                     <tr>
                         <th>id</th>
