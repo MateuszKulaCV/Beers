@@ -9,10 +9,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Add beer page</title>
+
 </head>
 <body>
-<h1>Add beer page</h1>
+
 <p>Here you can add a new beer.</p>
 <form:form method="POST" modelAttribute="beer" action="${pageContext.request.contextPath}/beers/createbeer/process">
 <table>
@@ -48,7 +48,5 @@
 </tbody>
 </table>
 </form:form>
-
-<p><a href="${pageContext.request.contextPath}/beerList2">Home page</a></p>
 </body>
 </html>

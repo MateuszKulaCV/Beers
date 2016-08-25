@@ -9,10 +9,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Add pub page</title>
 </head>
 <body>
-<h1>Add pub page</h1>
 <p>Here you can add a new pub.</p>
 <form:form method="POST" modelAttribute="pub" action="${pageContext.request.contextPath}/pubs/createpub/process">
 <table>
@@ -32,7 +30,5 @@
 </tbody>
 </table>
 </form:form>
-
-<p><a href="${pageContext.request.contextPath}/pubs/publist">publist</a></p>
 </body>
 </html>

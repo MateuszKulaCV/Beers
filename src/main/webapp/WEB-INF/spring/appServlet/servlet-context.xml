@@ -25,6 +25,8 @@
     
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 	
+	
+	
     <bean id="viewResolver" class="org.springframework.web.servlet.view.tiles3.TilesViewResolver"/>
 <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
 <property name="definitions">
@@ -39,11 +41,17 @@
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
     <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
     <property name="url" value="jdbc:mysql://localhost:3306/beerbeer"/>
-    <property name="username" value="root"/>
+    <property name="username" value="maticzok"/>
     <property name="password" value="aikon12"/>
 </bean>
-
-
+<!-- 
+    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+    <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+    <property name="url" value="jdbc:mysql://mydbinstance.cwd2twujwpbc.us-west-2.rds.amazonaws.com:3306/beerbeer"/>
+    <property name="username" value="awsuser"/>
+    <property name="password" value="awspassword"/>
+</bean>
+ -->
 <bean id="sessionFactory"
     class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
     <property name="dataSource" ref="dataSource" />
