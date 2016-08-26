@@ -7,4 +7,12 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 		
 		<import resource="spring-security.xml"/>
+		 <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+    <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+    <property name="url" value="jdbc:mysql://localhost:3306/beerbeer"/>
+    <property name="username" value="maticzok"/>
+    <property name="password" value="aikon12"/>
+</bean>
+
+
 </beans>

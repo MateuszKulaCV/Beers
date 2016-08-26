@@ -4,6 +4,7 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles-extras" prefix="tilesx" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 <html>
  
 <head>
@@ -45,10 +46,16 @@ body {
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li class="${current== 'home'?'active' : '' }"><a href="${pageContext.request.contextPath}/">Home</a></li>
+              <security:authorize access="hasRole('ADMIN')"> <li>admin</li></security:authorize>
+              <security:authorize access="hasRole('USER')"> <li>user</li></security:authorize>
               <li class="${current== 'beers'?'active' : '' }"><a href="${pageContext.request.contextPath}/beers">Beers</a></li>
               <li class="${current== 'pubs'?'active' : '' }"><a href="${pageContext.request.contextPath}/pubs">Pubs</a></li>
+              <security:authorize access="! isAuthenticated()">
               <li class="${current== 'login'?'active' : '' }"><a href="${pageContext.request.contextPath}/login">Login</a></li>
-              
+              </security:authorize>
+              <security:authorize access="isAuthenticated()">
+               <li><a href="${pageContext.request.contextPath}/logout">Logout</a></li>
+               </security:authorize>
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
