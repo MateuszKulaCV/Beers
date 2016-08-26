@@ -44,18 +44,28 @@ body {
             <p1 class="navbar-brand">Beers</p1>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
+          <!-- left side -->
             <ul class="nav navbar-nav">
               <li class="${current== 'home'?'active' : '' }"><a href="${pageContext.request.contextPath}/">Home</a></li>
-              <security:authorize access="hasRole('ADMIN')"> <li>admin</li></security:authorize>
-              <security:authorize access="hasRole('USER')"> <li>user</li></security:authorize>
-              <li class="${current== 'beers'?'active' : '' }"><a href="${pageContext.request.contextPath}/beers">Beers</a></li>
+               <security:authorize access="isAuthenticated()">
+              <li class="${current== 'fav'?'active' : '' }"><a href="${pageContext.request.contextPath}/fav">Favorite</a></li>
+              </security:authorize>
               <li class="${current== 'pubs'?'active' : '' }"><a href="${pageContext.request.contextPath}/pubs">Pubs</a></li>
-              <security:authorize access="! isAuthenticated()">
+            </ul>
+            
+            
+            <!-- right side navbar -->
+            <ul class="nav navbar-nav navbar-right">
+             <security:authorize access="hasRole('ADMIN')"> <li>admin</li></security:authorize>
+             <security:authorize access="hasRole('USER')"> <li>ss</li></security:authorize>
+             <security:authorize access="hasRole('TEMP')"> <li>temp</li></security:authorize>
+            <security:authorize access="! isAuthenticated()">
               <li class="${current== 'login'?'active' : '' }"><a href="${pageContext.request.contextPath}/login">Login</a></li>
               </security:authorize>
               <security:authorize access="isAuthenticated()">
                <li><a href="${pageContext.request.contextPath}/logout">Logout</a></li>
                </security:authorize>
+            
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->

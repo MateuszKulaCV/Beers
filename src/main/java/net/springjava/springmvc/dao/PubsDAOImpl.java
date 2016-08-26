@@ -1,5 +1,6 @@
 package net.springjava.springmvc.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -7,7 +8,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Transactional;
 
-import net.springjava.springmvc.model.Beers;
 import net.springjava.springmvc.model.Pubs;
 
 
@@ -32,6 +32,25 @@ public class PubsDAOImpl implements PubsDAO {
 	 return listPubs;
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	@Transactional
+	public ArrayList<Pubs> favList(List<String> favlist)
+	{
+		List<Pubs> listPubs = new ArrayList<Pubs>();
+		
+		for(String fav:favlist){
+			
+		listPubs.addAll(sessionFactory.getCurrentSession()
+                .createQuery("from Pubs p where p.pub =:fav")
+                .setString("fav", fav)
+                .list()); 
+			}
+		System.out.println(listPubs.size()+"dupaDAO");
+		return (ArrayList<Pubs>) listPubs;
+		
+	}
+	
 	@Override
 	@Transactional
 	public void createPub(Pubs pub) {

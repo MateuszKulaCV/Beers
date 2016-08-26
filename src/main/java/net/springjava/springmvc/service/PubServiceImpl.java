@@ -36,4 +36,10 @@ public class PubServiceImpl implements PubService {
 		return (Pubs) pubsDAO.getPub(id);
 	}
 
+
+	public List<Pubs> favList(List<String> favlist) {
+		System.out.println(favlist.size()+"dupaserv");
+		return pubsDAO.favList(favlist);
+	}
+
 }

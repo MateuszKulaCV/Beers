@@ -26,6 +26,12 @@
        <put-attribute name="current" value="home"/>
    </definition>  
    
+    <!-- Fav page -->
+   <definition name="fav" extends="base-definition">  
+       <put-attribute name="title" value="fav" />  
+       <put-attribute name="body" value="/WEB-INF/views/fav.jsp" /> 
+       <put-attribute name="current" value="fav"/>
+   </definition>  
  
    <!-- Beers Page -->
    <definition name="beers" extends="base-definition">  
