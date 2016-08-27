@@ -24,7 +24,7 @@
 <div >
   
        
-        <div align="right"><a href="${pageContext.request.contextPath}/pubs/createpub">add pub</a></div>
+     <security:authorize access="hasRole('ADMIN')">   <div align="right"><a href="${pageContext.request.contextPath}/pubs/createpub">add pub</a></div></security:authorize>
         <div class="panel-body">
             <c:if test="${empty pubList}">
                 There are no Pubs
@@ -34,20 +34,24 @@
                 <table class="table "style="background-color: #eaf8fb;">
                     <thead style="background-color: #bce8f1;">
                     <tr>
-                        <th>id</th>
+                    <security:authorize access="hasRole('ADMIN')">    <th>id</th></security:authorize>
               
                 <th>pub</th>
                 <th>link</th>
-                <th>delete</th>
+             <security:authorize access="hasRole('ADMIN')">   <th>delete</th></security:authorize>
                     </tr>
                     </thead>
                     <tbody>
                     <c:forEach items="${pubList}" var="pub">
                         <tr>
+                           <security:authorize access="hasRole('ADMIN')">
                             <th><c:out value="${pub.id}"/></th>
-                            <th><c:out value="${pub.pub}"/></th>
+                            </security:authorize>
+                            <th><c:out value="${pub.pub}"/></th> 
                             <th><c:out value="${pub.link}"/></th>          
-                            <th><a href="${pageContext.request.contextPath}/pubs/deletepub/${pub.id}">DELETE</a></th>                     
+                           <security:authorize access="hasRole('ADMIN')">
+                            <th><a href="${pageContext.request.contextPath}/pubs/deletepub/${pub.id}">DELETE</a></th>
+                            </security:authorize>                     
                         </tr>
                     </c:forEach>
                     </tbody>

@@ -31,7 +31,7 @@ private SessionFactory sessionFactory;
 		 	
 		 	
 			System.out.println(fav);
-			System.out.println("Usersdao");
+			//System.out.println("Usersdao");
 	 return favlist;
 	}
 

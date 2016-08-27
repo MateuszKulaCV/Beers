@@ -3,6 +3,7 @@ package net.springjava.springmvc;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
@@ -21,17 +22,24 @@ public class FavController {
 	@Autowired
 	private PubService pubService;
 	
+	
 	@RequestMapping(value="/fav")
 	public ModelAndView getFav()
 	{
 		ModelAndView model = new ModelAndView("fav");
-		
+		try{
 		User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		
 		list = (List<String>) userService.getFavorite(user.getUsername());
-		System.out.println(list.get(0)+"dupacontroller");
+		//System.out.println(list.get(0)+"dupacontroller");
 		
 		model.addObject("pubList",pubService.favList(list));
-		
+		}catch(Exception e)
+		{
+			
+			System.out.println(e);
+			return new ModelAndView("home");
+		}
 		return model;
 	}
 	

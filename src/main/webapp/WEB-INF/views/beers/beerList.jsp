@@ -11,7 +11,7 @@
 <html>
 <body class=".container">
    
-        <div align="right"><a href="${pageContext.request.contextPath}/beers/createbeer">add beer</a></div>
+        <security:authorize access="hasRole('ADMIN')"><div align="right"><a href="${pageContext.request.contextPath}/beers/createbeer">add beer</a></div></security:authorize>
         <div class="panel-body">
             <c:if test="${empty beerList}">
                 There are no Beers
@@ -21,27 +21,31 @@
                  <table class="table " style="background-color: #eaf8fb;" >
                     <thead style="background-color: #bce8f1;">
                     <tr>
-                        <th>id</th>
-                <th>piwos</th>
+                     <security:authorize access="hasRole('ADMIN')">   <th>id</th></security:authorize>
+                <th>piwo</th>
                 <th>pub</th>
                 <th>link</th>
                 <th>progress</th>
                 <th>half</th>
                 <th>three</th>
-                <th>delete</th>
+                <security:authorize access="hasRole('ADMIN')"><th>delete</th></security:authorize>
                     </tr>
                     </thead>
                     <tbody>
                     <c:forEach items="${beerList}" var="beer">
                         <tr>
-                            <th><c:out value="${beer.id}"/></th>
+                       	 	<security:authorize access="hasRole('ADMIN')">
+                            	<th><c:out value="${beer.id}"/></th>
+                        	</security:authorize>
                             <th><c:out value="${beer.piwo}"/></th>
                             <th><c:out value="${beer.pub}"/></th>
                             <th><c:out value="${beer.link}"/></th>          
-                             <th><c:out value="${beer.progress}"/></th>
+                            <th><c:out value="${beer.progress}"/></th>
                             <th><c:out value="${beer.halfprice}"/></th>
                             <th><c:out value="${beer.threeprice}"/></th>              
-							<th><a href="${pageContext.request.contextPath}/beers/deletebeer/${beer.id}">DELETE</a></th>                     
+							<security:authorize access="hasRole('ADMIN')">
+								<th><a href="${pageContext.request.contextPath}/beers/deletebeer/${beer.id}">DELETE</a></th>                     
+							</security:authorize>                        
                         </tr>
                     </c:forEach>
                     </tbody>
