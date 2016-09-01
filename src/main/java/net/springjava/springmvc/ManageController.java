@@ -13,11 +13,17 @@ import net.springjava.springmvc.model.Beers;
 import net.springjava.springmvc.model.Pubs;
 import net.springjava.springmvc.service.BeerService;
 
+/**
+ * Pub manage controller
+ * Add/Edit Beers/Info 
+ *
+ */
 @Controller
 public class ManageController {
 
 	@Autowired
 	private BeerService beerService;
+	
 	
 	@RequestMapping(value="/manage")
 	public ModelAndView manage()
@@ -26,6 +32,7 @@ public class ManageController {
 		return model;
 	}
 	
+	
 	@RequestMapping(value="/manage/beers")
 	public ModelAndView manageBeers()
 	{
@@ -33,7 +40,37 @@ public class ManageController {
 		beerList(model);
 		return model;
 	}
-
+	
+	
+	@RequestMapping(value="/manage/beers/edit/{id}")
+	public ModelAndView editBeer(@PathVariable("id") int id)
+	{
+		
+		ModelAndView model = new ModelAndView("managebeersedit");
+		model.addObject("beer",beerService.getById(id));
+		return model;
+	}
+	
+	@RequestMapping(value="/manage/beers/edit/{id}/process")
+	public ModelAndView editingBeer(@ModelAttribute("beer") Beers beer)
+	{
+		ModelAndView model = new ModelAndView("managebeers");
+		try
+		{
+			User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+			beer.setPub(user.getUsername());
+			beerService.updateBeer(beer);
+		}catch(Exception e)
+		{
+			System.out.println(e);
+			
+		}
+		beerList(model);
+		return model;
+	}
+	
+	
+	
 	@RequestMapping(value="/manage/beers/add")
 	public ModelAndView addBeer()
 	{
@@ -60,6 +97,9 @@ public class ManageController {
 		return model;
 	}
 	
+	
+	
+	
 	@RequestMapping(value="/manage/beers/delete/{id}")
 	public ModelAndView manageDelete(@PathVariable Integer id)
 	{
@@ -68,6 +108,9 @@ public class ManageController {
 		beerList(model);
 		return model;
 	}
+	
+	
+	
 	@RequestMapping(value="/manage/info")
 	public ModelAndView manageInfo()
 	{
@@ -75,6 +118,9 @@ public class ManageController {
 		return model;
 	}
 	
+	
+	
+	//updating beerList
 	private void beerList(ModelAndView model)
 	{
 		User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();

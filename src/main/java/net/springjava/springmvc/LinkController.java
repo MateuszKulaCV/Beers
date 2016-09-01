@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class LinkController {
 
-	
+	//default controller
 	@RequestMapping(value="/")
 	public ModelAndView home()
 	{

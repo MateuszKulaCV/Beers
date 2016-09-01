@@ -9,6 +9,7 @@ public interface BeerService {
 
 		 public List<Beers> list();
 		 public void createBeer(Beers beer);
+		 public void updateBeer(Beers beer);
 		 public void deleteBeer(int id);
 		 public Beers getById(int id);
 		 public List<Beers> listFromPub(Pubs pub);

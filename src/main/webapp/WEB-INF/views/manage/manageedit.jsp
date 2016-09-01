@@ -14,7 +14,7 @@
 <body>
 
 <p>Here you can add a new beer.</p>
-<form:form method="POST" modelAttribute="beer" action="${pageContext.request.contextPath}/manage/beers/add/process">
+<form:form method="POST" modelAttribute="beer" action="${pageContext.request.contextPath}/manage/beers/edit/${beer.id}/process">
 <table>
 <tbody>
 	<tr>
@@ -38,7 +38,7 @@
 		<td><form:input path="threeprice" value="${beer.threeprice}"></form:input></td>
 	</tr>
 	<tr>
-		<td><input value="Add" type="submit"></td>
+		<td><input value="Edit" type="submit"></td>
 		<td></td>
 	</tr>
 </tbody>

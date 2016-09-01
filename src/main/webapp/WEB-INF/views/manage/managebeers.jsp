@@ -21,28 +21,26 @@
                  <table class="table " style="background-color: #eaf8fb;" >
                     <thead style="background-color: #bce8f1;">
                     <tr>
-                     <security:authorize access="hasRole('MANAGER')">   <th>id</th></security:authorize>
+                    
                 <th>piwo</th>
-                <th>pub</th>
+               
                 <th>link</th>
                 <th>progress</th>
                 <th>half</th>
                 <th>three</th>
+                <th>edit</th>
                 <security:authorize access="hasRole('MANAGER')"><th>delete</th></security:authorize>
                     </tr>
                     </thead>
                     <tbody>
                     <c:forEach items="${beerList}" var="beer">
                         <tr>
-                       	 	<security:authorize access="hasRole('MANAGER')">
-                            	<th><c:out value="${beer.id}"/></th>
-                        	</security:authorize>
-                            <th><c:out value="${beer.piwo}"/></th>
-                            <th><c:out value="${beer.pub}"/></th>
+                       	 	<th><c:out value="${beer.piwo}"/></th>
                             <th><c:out value="${beer.link}"/></th>          
                             <th><c:out value="${beer.progress}"/></th>
                             <th><c:out value="${beer.halfprice}"/></th>
-                            <th><c:out value="${beer.threeprice}"/></th>              
+                            <th><c:out value="${beer.threeprice}"/></th>  
+                            <th><a href="${pageContext.request.contextPath}/manage/beers/edit/${beer.id}">EDIT</a></th>            
 							<security:authorize access="hasRole('MANAGER')">
 								<th><a href="${pageContext.request.contextPath}/manage/beers/delete/${beer.id}">DELETE</a></th>                     
 							</security:authorize>                        

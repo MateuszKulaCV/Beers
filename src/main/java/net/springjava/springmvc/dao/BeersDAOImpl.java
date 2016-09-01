@@ -67,6 +67,13 @@ public class BeersDAOImpl implements BeersDAO {
 		return (ArrayList<Beers>) beers;
 	}
 
+	@Override
+	@Transactional
+	public void updateBeer(Beers beer) {
+		Session session = this.sessionFactory.getCurrentSession();
+		session.update(beer);	
+	}
+
 	/*
 	 * @Override
 	@Transactional

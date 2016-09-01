@@ -45,6 +45,11 @@ public class BeerServiceImpl implements BeerService {
 		return beersDAO.listFromPub(pub);
 	}
 
+
+	public void updateBeer(Beers beer) {
+	    	beersDAO.updateBeer(beer);
+	}
+
 /*
 	@Override
 	public void addmany() {

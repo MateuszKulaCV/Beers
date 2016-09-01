@@ -79,6 +79,12 @@
        <put-attribute name="body" value="/WEB-INF/views/manage/manageadd.jsp" /> 
        <put-attribute name="current" value="manage"/>
    </definition>  
+    <!-- Manage Beers Edit Page -->
+   <definition name="managebeersedit" extends="base-definition">  
+       <put-attribute name="title" value="Manage Beers" />  
+       <put-attribute name="body" value="/WEB-INF/views/manage/manageedit.jsp" /> 
+       <put-attribute name="current" value="manage"/>
+   </definition>  
    
     <!-- Manage Info Page -->
    <definition name="manageinfo" extends="base-definition">  

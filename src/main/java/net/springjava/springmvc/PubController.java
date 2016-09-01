@@ -1,4 +1,5 @@
 package net.springjava.springmvc;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,6 +31,7 @@ public class PubController {
     @Autowired
     private BeerService beerService;
     
+    
     @RequestMapping(value="/pubs")
     public ModelAndView pubList() {
        
@@ -37,6 +39,7 @@ public class PubController {
        pubs(model);
         return model;
     }
+    
     
     @RequestMapping(value="/pubs/createpub")
     public ModelAndView createpubpage()
@@ -56,6 +59,7 @@ public class PubController {
     }
     
     
+    
     @RequestMapping(value="pubs/deletepub/{id}", method= RequestMethod.GET)
     public ModelAndView deletepub(@PathVariable Integer id)
     {
@@ -65,17 +69,21 @@ public class PubController {
     return model;	
     }
     
+    
+    //Return Json for android app 
     @RequestMapping(value="pubs/json")
     public @ResponseBody List<Pubs> getListPubsInJson()
     {
     	return (List<Pubs>) pubService.list();
     }
     
+    
     @RequestMapping(value="pubs/json/{id}", method = RequestMethod.GET)
     public @ResponseBody Pubs getPubInJson(@PathVariable Integer id)
     {
     	return (Pubs) pubService.getPub(id);
     }
+    
     
     private void pubs(ModelAndView model)
     {

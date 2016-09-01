@@ -29,32 +29,37 @@ public class FavController {
 	private BeerService beerService;
 	
 	
-	
+	/**
+	 * setting pubs view to fav only
+	 * @return list of fav pub
+	 */
 	@RequestMapping(value="/fav")
 	public ModelAndView getFav()
 	{
 		ModelAndView model = new ModelAndView("fav");
 		try{
-		User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+			
+			User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		
-		Map<Pubs,List<Beers>> out = new HashMap<Pubs,List<Beers>>();		
+			Map<Pubs,List<Beers>> out = new HashMap<Pubs,List<Beers>>();		
+				
+			list = (List<String>) userService.getFavorite(user.getUsername());
+			List<Pubs> pubs = pubService.favList(list);
 		
+			for(Pubs p:pubs)
+			{
+				out.put(p, beerService.listFromPub(p));
+			}
 		
-		list = (List<String>) userService.getFavorite(user.getUsername());
-		List<Pubs> pubs = pubService.favList(list);
-		for(Pubs p:pubs)
-		{
-			out.put(p, beerService.listFromPub(p));
-		}
+			model.addObject("out",out);
 		
-		
-		model.addObject("out",out);
 		}catch(Exception e)
 		{
 			
 			System.out.println(e);
 			return new ModelAndView("home");
 		}
+		
 		return model;
 	}
 	
