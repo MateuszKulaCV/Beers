@@ -21,44 +21,52 @@
     </style>
 </head> 
 <body>
+<div class="container">
+<div class="panel-group" id="accordion">
+<c:forEach items="${out}" var="out">
+
+	 <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+        <img src="${out.key.link}" height="50" width="50"/>
+          <a data-toggle="collapse" data-parent="#accordion" href="#${out.key.id}"><c:out value="${out.key.pub}"/></a>
+        </h4>
+      </div>
+      <div id="${out.key.id}" class="panel-collapse collapse out">
+        <div class="panel-body">
+        <div class="table-responsive">
+        	<table class="table">
+        	<thead>
+        	<tr>
+        	<th>nazwa</th>
+        	<th>cena</th>
+        	<th>progress</th>
+        	</tr>
+        	</thead>
+        	<tbody>
+        	
+        	<c:forEach items="${out.value}" var="beer">
+        	<tr>
+        		<th><img src="${beer.link}" height="50" width="50"/></th>
+        		<th><c:out value="${beer.piwo}"/></th>
+        		<th><c:out value="${beer.halfprice}"/></th>
+        		<th><c:out value="${beer.progress}"/></th>
+        		 </tr>
+        	</c:forEach>
+   
+     </tbody>
+      </table>
+      </div>
+        </div>
+      </div>
+    </div>
+</c:forEach>
+
+  </div>
+  </div>
 <div >
   
        
-     <security:authorize access="hasRole('ADMIN')">   <div align="right"><a href="${pageContext.request.contextPath}/pubs/createpub">add pub</a></div></security:authorize>
-        <div class="panel-body">
-            <c:if test="${empty pubList}">
-                There are no Pubs
-            </c:if>
-            <c:if test="${not empty pubList}">   
-                        
-                <table class="table "style="background-color: #eaf8fb;">
-                    <thead style="background-color: #bce8f1;">
-                    <tr>
-                    <security:authorize access="hasRole('ADMIN')">    <th>id</th></security:authorize>
-              
-                <th>pub</th>
-                <th>link</th>
-             <security:authorize access="hasRole('ADMIN')">   <th>delete</th></security:authorize>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <c:forEach items="${pubList}" var="pub">
-                        <tr>
-                           <security:authorize access="hasRole('ADMIN')">
-                            <th><c:out value="${pub.id}"/></th>
-                            </security:authorize>
-                            <th><c:out value="${pub.pub}"/></th> 
-                            <th><c:out value="${pub.link}"/></th>          
-                           <security:authorize access="hasRole('ADMIN')">
-                            <th><a href="${pageContext.request.contextPath}/pubs/deletepub/${pub.id}">DELETE</a></th>
-                            </security:authorize>                     
-                        </tr>
-                    </c:forEach>
-                    </tbody>
-                </table>
-            </c:if>
-       
-    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>    
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     

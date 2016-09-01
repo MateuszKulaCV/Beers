@@ -10,6 +10,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Transactional;
 
 import net.springjava.springmvc.model.Beers;
+import net.springjava.springmvc.model.Pubs;
 
 public class BeersDAOImpl implements BeersDAO {
 
@@ -50,6 +51,20 @@ public class BeersDAOImpl implements BeersDAO {
 	public Beers getBeer(int id) {
 		Session session = this.sessionFactory.getCurrentSession();
 		return (Beers) session.get(Beers.class, id);
+	}
+
+	@Override
+	@Transactional
+	public List<Beers> listFromPub(Pubs pub) {
+		Session session = this.sessionFactory.getCurrentSession();
+		List<Beers> beers = new ArrayList<Beers>();
+		
+		beers.addAll(session
+				.createQuery("from Beers b where b.pub=:pub")
+				.setString("pub", pub.getPub())
+				.list());
+		
+		return (ArrayList<Beers>) beers;
 	}
 
 	/*

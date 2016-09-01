@@ -1,5 +1,7 @@
 package net.springjava.springmvc;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import net.springjava.springmvc.model.Beers;
 import net.springjava.springmvc.model.Pubs;
+import net.springjava.springmvc.service.BeerService;
 import net.springjava.springmvc.service.PubService;
 
 
@@ -24,7 +27,8 @@ public class PubController {
      
     @Autowired
     private PubService pubService;
-     
+    @Autowired
+    private BeerService beerService;
     
     @RequestMapping(value="/pubs")
     public ModelAndView pubList() {
@@ -75,8 +79,13 @@ public class PubController {
     
     private void pubs(ModelAndView model)
     {
+    	Map<Pubs,List<Beers>> out = new HashMap<Pubs,List<Beers>>();
     	 List<Pubs> listPubs = pubService.list();
-    	 model.addObject("pubList", listPubs);
+    	for(Pubs p:listPubs)
+    	{
+    		out.put(p, beerService.listFromPub(p));
+    	}
+    	 model.addObject("out", out);
     }
      
 }

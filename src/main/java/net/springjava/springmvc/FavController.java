@@ -1,15 +1,19 @@
 package net.springjava.springmvc;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import net.springjava.springmvc.model.Beers;
+import net.springjava.springmvc.model.Pubs;
+import net.springjava.springmvc.service.BeerService;
 import net.springjava.springmvc.service.PubService;
 import net.springjava.springmvc.service.UsersService;
 
@@ -21,6 +25,9 @@ public class FavController {
 	private UsersService userService;
 	@Autowired
 	private PubService pubService;
+	@Autowired
+	private BeerService beerService;
+	
 	
 	
 	@RequestMapping(value="/fav")
@@ -30,10 +37,18 @@ public class FavController {
 		try{
 		User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		
-		list = (List<String>) userService.getFavorite(user.getUsername());
-		//System.out.println(list.get(0)+"dupacontroller");
+		Map<Pubs,List<Beers>> out = new HashMap<Pubs,List<Beers>>();		
 		
-		model.addObject("pubList",pubService.favList(list));
+		
+		list = (List<String>) userService.getFavorite(user.getUsername());
+		List<Pubs> pubs = pubService.favList(list);
+		for(Pubs p:pubs)
+		{
+			out.put(p, beerService.listFromPub(p));
+		}
+		
+		
+		model.addObject("out",out);
 		}catch(Exception e)
 		{
 			
