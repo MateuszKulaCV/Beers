@@ -12,7 +12,9 @@
     <title><tiles:getAsString name="title" /></title>
    <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+    <script src="http:////cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+    <script src="http:////cdn.datatables.net/responsive/1.0.1/js/dataTables.responsive.min.js"></script>
+    <script src="http://cdn.datatables.net/plug-ins/a5734b29083/integration/bootstrap/3/dataTables.bootstrap.js"></script>
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
@@ -56,9 +58,8 @@ body {
             
             <!-- right side navbar -->
             <ul class="nav navbar-nav navbar-right">
-             <security:authorize access="hasRole('ADMIN')"> <li>admin</li></security:authorize>
-             <security:authorize access="hasRole('USER')"> <li>ss</li></security:authorize>
-             <security:authorize access="hasRole('TEMP')"> <li>temp</li></security:authorize>
+             <security:authorize access="hasRole('ADMIN')"> <li class="${current== 'admin'?'active' : '' }"><a href="${pageContext.request.contextPath}/admin">Admin</a></li></security:authorize>
+             <security:authorize access="hasRole('MANAGER')"> <li class="${current== 'manage'?'active' : '' }"><a href="${pageContext.request.contextPath}/manage">Manage</a></li></security:authorize>
             <security:authorize access="! isAuthenticated()">
               <li class="${current== 'login'?'active' : '' }"><a href="${pageContext.request.contextPath}/login">Login</a></li>
               </security:authorize>

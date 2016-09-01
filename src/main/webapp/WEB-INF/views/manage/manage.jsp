@@ -9,7 +9,8 @@
 </head>
 <body>
 
-<h1>homepage</h1>  
+<a href="${pageContext.request.contextPath}/manage/beers">Edit Beers</a>
+<a href="${pageContext.request.contextPath}/manage/info">Edit Info</a>
     
 </body>
 </html>

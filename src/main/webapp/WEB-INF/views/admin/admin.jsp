@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<h1>homepage</h1>  
+<h1>admin</h1>  
     
 </body>
 </html>

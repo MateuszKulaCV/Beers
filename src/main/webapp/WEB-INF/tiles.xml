@@ -59,5 +59,39 @@
        <put-attribute name="body" value="/WEB-INF/views/pubs/createpub.jsp" />  
        <put-attribute name="current" value="create pubs"/>
    </definition>  
+   
+    <!-- Manage Page -->
+   <definition name="manage" extends="base-definition">  
+       <put-attribute name="title" value="Manage" />  
+       <put-attribute name="body" value="/WEB-INF/views/manage/manage.jsp" /> 
+       <put-attribute name="current" value="manage"/>
+   </definition>  
+   
+    <!-- Manage Beers Page -->
+   <definition name="managebeers" extends="base-definition">  
+       <put-attribute name="title" value="Manage Beers" />  
+       <put-attribute name="body" value="/WEB-INF/views/manage/managebeers.jsp" /> 
+       <put-attribute name="current" value="manage"/>
+   </definition>  
+    <!-- Manage Beers Add Page -->
+   <definition name="managebeersadd" extends="base-definition">  
+       <put-attribute name="title" value="Manage Beers" />  
+       <put-attribute name="body" value="/WEB-INF/views/manage/manageadd.jsp" /> 
+       <put-attribute name="current" value="manage"/>
+   </definition>  
+   
+    <!-- Manage Info Page -->
+   <definition name="manageinfo" extends="base-definition">  
+       <put-attribute name="title" value="Manage Info" />  
+       <put-attribute name="body" value="/WEB-INF/views/manage/manageinfo.jsp" /> 
+       <put-attribute name="current" value="manage"/>
+   </definition>
+     
+   <!-- Admin Page -->
+    <definition name="admin" extends="base-definition">  
+       <put-attribute name="title" value="Admin" />  
+       <put-attribute name="body" value="/WEB-INF/views/admin/admin.jsp" /> 
+       <put-attribute name="current" value="admin"/>
+   </definition>  
   
 </tiles-definitions>
