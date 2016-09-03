@@ -11,12 +11,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title><tiles:getAsString name="title" /></title>
    <!-- Latest compiled and minified CSS -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+   <script src="<c:url value="/resources/jquery.searchable.js" />"></script>
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="http:////cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
-    <script src="http:////cdn.datatables.net/responsive/1.0.1/js/dataTables.responsive.min.js"></script>
-    <script src="http://cdn.datatables.net/plug-ins/a5734b29083/integration/bootstrap/3/dataTables.bootstrap.js"></script>
 <!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
 
 <!-- Latest compiled JavaScript -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

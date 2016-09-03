@@ -12,7 +12,8 @@
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Employees List</title>
-    
+     
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     
     <!-- Bootstrap CSS -->
     <%-- <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet"> --%>
@@ -26,8 +27,10 @@
  
 </head> 
 <body>
-<div class="container">
-
+    <div class="col-lg-4 col-lg-offset-4">
+            <input type="search" id="container-search" value="" class="form-control" placeholder="Search...">
+        </div>
+<div class="container" id="searchable-container">
 <div class="panel-group" id="accordion">
 <c:forEach items="${out}" var="out">
 
@@ -35,7 +38,7 @@
       <div class="panel-heading">
         <h4 class="panel-title">
         <img src="${out.key.link}" height="50" width="50"/>
-          <a data-toggle="collapse" data-parent="#accordion" href="#${out.key.id}"><c:out value="${out.key.pub}"/></a>
+          <a data-toggle="collapse" data-parent="#accordion" href="#${out.key.id}">${out.key.pub}</a>
         </h4>
       </div>
       <div id="${out.key.id}" class="panel-collapse collapse out">
@@ -73,12 +76,24 @@
   </div>
 
   
-       
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>    
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script>
+
+    $(function () {
+	    
+	    $( '#searchable-container' ).searchable({
+	        searchField: '#container-search',
+	        selector: '.panel',
+	        childSelector: '.panel-title',
+	        show: function( elem ) {
+	            elem.slideDown(100);
+	        },
+	        hide: function( elem ) {
+	            elem.slideUp( 100 );
+	        }
+	    })
+	});
+    </script>
+   
     
-    <%-- <script src="<c:url value="/resources/js/jquery-2.1.3.js"/>"></script>
-    <script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
-     --%>
 </body>
 </html>

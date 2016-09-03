@@ -71,11 +71,12 @@ public class PubController {
     
     
     //Return Json for android app 
-    @RequestMapping(value="pubs/json")
+    @RequestMapping(value="/pubs/json" ,method= RequestMethod.GET)
     public @ResponseBody List<Pubs> getListPubsInJson()
     {
     	return (List<Pubs>) pubService.list();
     }
+    
     
     
     @RequestMapping(value="pubs/json/{id}", method = RequestMethod.GET)
