@@ -13,7 +13,9 @@
    <!-- Latest compiled and minified CSS -->
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
    <script src="<c:url value="/resources/jquery.searchable.js" />"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
 <!-- jQuery library -->
 
 
@@ -30,6 +32,7 @@ body {
 .navbar {
   margin-bottom: 20px;
 }
+.ui-helper-hidden-accessible { display:none; }
 
 </style>
 </head>
@@ -52,6 +55,7 @@ body {
               <li class="${current== 'fav'?'active' : '' }"><a href="${pageContext.request.contextPath}/fav">Favorite</a></li>
               </security:authorize>
               <li class="${current== 'pubs'?'active' : '' }"><a href="${pageContext.request.contextPath}/pubs">Pubs</a></li>
+               <li class="${current== 'find'?'active' : '' }"><a href="${pageContext.request.contextPath}/find">Find</a></li>
             </ul>
             
             

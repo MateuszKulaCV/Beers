@@ -99,5 +99,38 @@
        <put-attribute name="body" value="/WEB-INF/views/admin/admin.jsp" /> 
        <put-attribute name="current" value="admin"/>
    </definition>  
+   
+       <!-- Admin Beers Page -->
+   <definition name="adminbeers" extends="base-definition">  
+       <put-attribute name="title" value="Admin Beers" />  
+       <put-attribute name="body" value="/WEB-INF/views/admin/adminbeers.jsp" /> 
+       <put-attribute name="current" value="admin"/>
+   </definition>  
+    <!-- Admin Beers Add Page -->
+   <definition name="adminbeersadd" extends="base-definition">  
+       <put-attribute name="title" value="Admin Beers" />  
+       <put-attribute name="body" value="/WEB-INF/views/admin/adminadd.jsp" /> 
+       <put-attribute name="current" value="admin"/>
+   </definition>  
+    <!-- Admin Beers Edit Page -->
+   <definition name="adminbeersedit" extends="base-definition">  
+       <put-attribute name="title" value="Admin Beers" />  
+       <put-attribute name="body" value="/WEB-INF/views/admin/adminedit.jsp" /> 
+       <put-attribute name="current" value="admin"/>
+   </definition>  
+   
+    <!-- admin Info Page -->
+   <definition name="admininfo" extends="base-definition">  
+       <put-attribute name="title" value="Admin Info" />  
+       <put-attribute name="body" value="/WEB-INF/views/admin/admininfo.jsp" /> 
+       <put-attribute name="current" value="admin"/>
+   </definition>
+   
+    <!-- admin Info Page -->
+   <definition name="find" extends="base-definition">  
+       <put-attribute name="title" value="find" />  
+       <put-attribute name="body" value="/WEB-INF/views/find.jsp" /> 
+       <put-attribute name="current" value="find"/>
+   </definition>
   
 </tiles-definitions>

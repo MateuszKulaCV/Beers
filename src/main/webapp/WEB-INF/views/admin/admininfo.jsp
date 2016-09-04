@@ -8,9 +8,6 @@
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<a href="${pageContext.request.contextPath}/admin/pubs">Edit Pubs</a>
-<a href="${pageContext.request.contextPath}/admin/beers">Edit Beers</a>
-<a href="${pageContext.request.contextPath}/admin/info">Edit Info</a>
-    
+set info adm
 </body>
 </html>
